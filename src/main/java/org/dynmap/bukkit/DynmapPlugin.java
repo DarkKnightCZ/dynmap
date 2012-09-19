@@ -87,6 +87,7 @@ import org.dynmap.common.DynmapListenerManager.EventType;
 import org.dynmap.hdmap.HDMap;
 import org.dynmap.markers.MarkerAPI;
 import org.dynmap.utils.MapChunkCache;
+import org.dynmap.web.CustomBanIPFilter;
 
 public class DynmapPlugin extends JavaPlugin implements DynmapAPI {
     private DynmapCore core;
@@ -641,6 +642,9 @@ public class DynmapPlugin extends JavaPlugin implements DynmapAPI {
         /* Submit metrics to mcstats.org */
         initMetrics();
         
+        /* Custom BAN IP filter */
+        new CustomBanIPFilter(core);
+                
         Log.info("Enabled");
     }
     
